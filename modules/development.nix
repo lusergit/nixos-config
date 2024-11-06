@@ -44,26 +44,16 @@
         rebase.autostash = true;
         rebase.updateRefs = true;
         rerere.enabled = true;
+        core.editor = "emacsclient -c";
 
         user = {
           name = "Luca Zaninotto";
-          email = "lucazann@gmail.com";
+          email = "luca.zaninotto@secomind.com";
+          signingKey = "F3F89DB4BABF8C77";
         };
+        commit.gpgSign = true;
+        tag.gpgSign = true;
       };
-
-      includes = [
-        {
-          condition = "gitdir:~/seco/";
-          contents = {
-            user = {
-              email = "luca.zaninotto@secomind.com";
-              signingKey = "F3F89DB4BABF8C77";
-            };
-            commit.gpgSign = true;
-            tag.gpgSign = true;
-          };
-        }
-      ];
     };
   };
 }
