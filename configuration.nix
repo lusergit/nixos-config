@@ -97,6 +97,7 @@
     mattermost-desktop
     spotify
     docker-compose
+    elixir-ls
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -107,6 +108,13 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
+  };
+  programs.firefox = {
+    enable = true;
+    preferences = {
+      "widget.use-xdg-desktop-portal.file-picker" = 1;
+      "widget.use-xdg-desktop-portal.mime-handler" = 1;
+    };
   };
 
   # List services that you want to enable:

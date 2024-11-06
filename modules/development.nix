@@ -21,6 +21,8 @@
         ".nix-mix/"
         ".nix-hex/"
         ".envrc"
+        ".env"
+        ".venv"
         ".vscode/"
         "result"
         ".elixir_ls/"

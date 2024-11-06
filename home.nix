@@ -12,7 +12,6 @@
             ./modules/emacs.nix
             ./modules/media.nix
             ./modules/fish.nix
-            ./modules/firefox.nix
           ];
           home.stateVersion = "24.05";
         };
