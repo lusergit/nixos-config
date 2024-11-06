@@ -71,7 +71,10 @@
     users.luser = {
       isNormalUser = true;
       group = "luser";
-      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+      extraGroups = [
+        "wheel"
+        "docker"
+      ];
       uid = 1000;
       initialHashedPassword = "$y$j9T$7lDCCTadqFywZ1mwkx/sd1$MLsh98uFxqg7eqx.zAwm1/1oMH.reTc5u/B5FcUAY64";
     };
@@ -86,28 +89,14 @@
 
   # Enable common container config files in /etc/containers
   virtualisation.containers.enable = true;
-  virtualisation = {
-    podman = {
-      enable = true;
-
-      # Create a `docker` alias for podman, to use it as a drop-in replacement
-      dockerCompat = true;
-
-      # Required for containers under podman-compose to be able to talk to each other.
-      defaultNetwork.settings.dns_enabled = true;
-    };
-  };
+  virtualisation.docker.enable = true;
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by fault.
     wget
-    firefox
     mattermost-desktop
     spotify
-    dive # look into docker image layers
-    podman-tui # status of containers in the terminal
-    docker-compose # start group of containers for dev
-    #podman-compose # start group of containers for dev
+    docker-compose
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -163,5 +152,4 @@
     "nix-command"
     "flakes"
   ];
-
 }

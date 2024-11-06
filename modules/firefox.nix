@@ -18,13 +18,9 @@
         id = 1;
       };
     };
-
-    # screen sharing under wayland
-    nativeMessagingHosts.packages = [ pkgs.plasma6Packages.plasma-browser-integration ];
-    # use kde file picker
     preferences = {
       "widget.use-xdg-desktop-portal.file-picker" = 1;
     };
-    wrapperConfig.pipewireSupport = true;
+    nativeMessagingHosts.packages = [ pkgs.plasma5Packages.plasma-browser-integration ];
   };
 }
