@@ -6,9 +6,7 @@
 }:
 
 {
-  imports = [
-    ./hardware-configuration.nix
-  ];
+  imports = [ ./hardware-configuration.nix ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -18,9 +16,7 @@
   networking.hostName = "lHost";
 
   # fonts
-  fonts.packages = with pkgs; [
-    cascadia-code
-  ];
+  fonts.packages = with pkgs; [ cascadia-code ];
 
   # Set your time zone.
   time.timeZone = "Europe/Rome";
@@ -87,6 +83,20 @@
       uid = 1001;
     };
   };
+
+  # Enable common container config files in /etc/containers
+  virtualisation.containers.enable = true;
+  virtualisation = {
+    podman = {
+      enable = true;
+
+      # Create a `docker` alias for podman, to use it as a drop-in replacement
+      dockerCompat = true;
+
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by fault.
@@ -94,6 +104,10 @@
     firefox
     mattermost-desktop
     spotify
+    dive # look into docker image layers
+    podman-tui # status of containers in the terminal
+    docker-compose # start group of containers for dev
+    #podman-compose # start group of containers for dev
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -149,4 +163,5 @@
     "nix-command"
     "flakes"
   ];
+
 }

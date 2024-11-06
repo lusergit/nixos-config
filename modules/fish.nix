@@ -13,10 +13,6 @@
     };
     programs.fish = {
       enable = true;
-      interactiveShellInit = ''
-        set -U fish_creeting
-      '';
-      loginShellInit = "starship init fish | source";
     };
   };
 }

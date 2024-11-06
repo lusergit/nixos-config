@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   programs = {
-    starship.enable = true;
     direnv = {
       enable = true;
       nix-direnv.enable = true;
