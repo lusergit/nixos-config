@@ -97,6 +97,7 @@
     mattermost-desktop
     spotify
     docker-compose
+    elixir
     elixir-ls
   ];
 
