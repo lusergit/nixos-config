@@ -6,12 +6,17 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-index-database = {
+      url = "github:Mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
       self,
       nixpkgs,
       homeManager,
+      nix-index-database
     }:
     {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
@@ -21,6 +26,7 @@
           ./configuration.nix
           homeManager.nixosModules.home-manager
           ./home.nix
+          nix-index-database.nixosModules.nix-index
         ];
       };
     };

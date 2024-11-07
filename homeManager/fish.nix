@@ -13,6 +13,9 @@
     };
     programs.fish = {
       enable = true;
+      interactiveShellInit = ''
+      set fish_greeting ""
+      '';
       shellAliases = {
         ec = "emacsclient -c";
         et = "emacsclient -t";

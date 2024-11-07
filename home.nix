@@ -8,10 +8,10 @@
         { ... }:
         {
           imports = [
-            ./modules/development.nix
-            ./modules/emacs.nix
-            ./modules/media.nix
-            ./modules/fish.nix
+            ./homeManager/development.nix
+            ./homeManager/emacs.nix
+            ./homeManager/media.nix
+            ./homeManager/fish.nix
           ];
           home.stateVersion = "24.05";
         };
