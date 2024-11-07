@@ -1,7 +1,12 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   programs.thunderbird = {
     enable = true;
+    profiles = {
+      luser = {
+        isDefault = true;
+      };
+    };
   };
 }

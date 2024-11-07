@@ -11,9 +11,20 @@
     ./nixos/nix.nix
   ];
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # boot config
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+
+    initrd.systemd.enable = true;
+
+    plymouth = {
+      enable = true;
+      theme = "breeze";
+    };
+  };
 
   networking.networkmanager.enable = true;
   networking.hostName = "lHost";
@@ -34,7 +45,10 @@
 
   services = {
     xserver.enable = true;
-    displayManager.sddm.enable = true;
+    displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
     desktopManager.plasma6.enable = true;
 
     flatpak.enable = true;
@@ -95,11 +109,13 @@
   virtualisation.docker.enable = true;
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by fault.
+    vim
     wget
     mattermost-desktop
     spotify
     docker-compose
+    guix
+    pkgs.kdePackages.sddm-kcm
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
