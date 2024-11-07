@@ -10,6 +10,11 @@
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "homeManager";
+    };
   };
   outputs =
     {
@@ -17,6 +22,7 @@
       nixpkgs,
       homeManager,
       nix-index-database,
+      plasma-manager,
     }:
     {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
@@ -25,7 +31,12 @@
         modules = [
           ./configuration.nix
           homeManager.nixosModules.home-manager
-          ./home.nix
+          {
+            homeManager.useGlobalPkgs = true;
+            homeManager.useUserPackages = true;
+            homeManager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
+            homeManager.users.luser = import ./home.nix;
+          }
           nix-index-database.nixosModules.nix-index
         ];
       };

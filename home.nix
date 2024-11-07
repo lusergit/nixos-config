@@ -8,6 +8,7 @@
         { ... }:
         {
           imports = [
+            ./homeManager/kde.nix
             ./homeManager/development.nix
             ./homeManager/emacs.nix
             ./homeManager/media.nix

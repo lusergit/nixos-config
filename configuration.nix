@@ -100,8 +100,6 @@
     mattermost-desktop
     spotify
     docker-compose
-    elixir
-    elixir-ls
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
