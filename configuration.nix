@@ -105,10 +105,10 @@
     };
   };
 
-  # Enable common container config files in /etc/containers
-  virtualization = {
+  virtualisation = {
     containers.enable = true;
     docker.enable = true;
+
     libvirtd = {
       enable = true;
       qemu = {
@@ -127,7 +127,7 @@
       };
     };
   };
-  # $ nix search wget
+
   environment.systemPackages = with pkgs; [
     vim
     wget
@@ -138,9 +138,6 @@
     pkgs.kdePackages.sddm-kcm
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
   programs = {
     fish.enable = true;
     git.enable = true;
