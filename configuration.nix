@@ -91,6 +91,7 @@
       extraGroups = [
         "wheel"
         "docker"
+        "libvirtd"
       ];
       uid = 1000;
       initialHashedPassword = "$y$j9T$7lDCCTadqFywZ1mwkx/sd1$MLsh98uFxqg7eqx.zAwm1/1oMH.reTc5u/B5FcUAY64";
@@ -105,8 +106,27 @@
   };
 
   # Enable common container config files in /etc/containers
-  virtualisation.containers.enable = true;
-  virtualisation.docker.enable = true;
+  virtualization = {
+    containers.enable = true;
+    docker.enable = true;
+    libvirtd = {
+      enable = true;
+      qemu = {
+        package = pkgs.qemu_kvm;
+        runAsRoot = true;
+        swtpm.enable = true;
+        ovmf = {
+          enable = true;
+          packages = [
+            (pkgs.OVMF.override {
+              secureBoot = true;
+              tpmSupport = true;
+            }).fd
+          ];
+        };
+      };
+    };
+  };
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim
@@ -121,18 +141,21 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  programs.fish.enable = true;
-  programs.git.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
-  programs.firefox = {
-    enable = true;
-    preferences = {
-      "widget.use-xdg-desktop-portal.file-picker" = 1;
-      "widget.use-xdg-desktop-portal.mime-handler" = 1;
+  programs = {
+    fish.enable = true;
+    git.enable = true;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
     };
+    firefox = {
+      enable = true;
+      preferences = {
+        "widget.use-xdg-desktop-portal.file-picker" = 1;
+        "widget.use-xdg-desktop-portal.mime-handler" = 1;
+      };
+    };
+    virt-manager.enable = true;
   };
 
   # List services that you want to enable:
