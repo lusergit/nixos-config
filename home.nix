@@ -12,6 +12,7 @@
             ./homeManager/emacs.nix
             ./homeManager/media.nix
             ./homeManager/fish.nix
+            ./homeManager/mail.nix
           ];
           home.stateVersion = "24.05";
         };
