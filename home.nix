@@ -20,6 +20,8 @@
               pkgs.spotify
               pkgs.telegram-desktop
               pkgs.mattermost-desktop
+              pkgs.ispell
+              pkgs.aspell
             ];
             stateVersion = "24.05";
           };
