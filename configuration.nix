@@ -154,6 +154,7 @@
     guix
     kdePackages.sddm-kcm
     kdePackages.plymouth-kcm
+    wl-clipboard
   ];
 
   programs = {

@@ -23,7 +23,8 @@
         ".nix-hex/"
         ".envrc"
         ".env"
-        ".venv"
+        ".venv/"
+        "pyenv/"
         ".vscode/"
         "result"
         ".elixir_ls/"
@@ -31,6 +32,10 @@
         ".helix"
         ".project"
       ];
+      aliases = {
+        fpush = "push --force-with-lease";
+        adog = "log --all --decorate --oneline --graph";
+      };
       extraConfig = {
         credential.helper = "store";
         diff.algorithm = "histogram";
