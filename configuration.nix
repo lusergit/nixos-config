@@ -147,15 +147,20 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-    docker-compose
-    guix
-    kdePackages.sddm-kcm
-    kdePackages.plymouth-kcm
-    wl-clipboard
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      vim
+      wget
+      docker-compose
+      guix
+      kdePackages.sddm-kcm
+      kdePackages.plymouth-kcm
+      wl-clipboard
+    ];
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+    };
+  };
 
   programs = {
     fish.enable = true;
