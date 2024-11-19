@@ -71,10 +71,9 @@
     desktopManager.plasma6.enable = true;
 
     flatpak.enable = true;
+    printing.enable = true;
   };
 
-  # Enable sound.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
 
   security = {
@@ -201,16 +200,16 @@
   };
 
   system.copySystemConfiguration = false;
-  system.stateVersion = "24.05";
+  system.stateVersion = "24.11";
 
   nixpkgs.config = {
     allowUnfree = true;
   };
 
   hardware.enableAllFirmware = true;
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
+    enable32Bit = true;
     extraPackages = with pkgs; [
       vaapiVdpau
       vulkan-validation-layers
