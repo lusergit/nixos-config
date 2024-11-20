@@ -12,6 +12,7 @@
             ./homeManager/emacs.nix
             ./homeManager/fish.nix
             ./homeManager/mail.nix
+            ./homeManager/media.nix
           ];
 
           home = {

@@ -27,7 +27,6 @@
       enable = true;
     };
 
-    # Enable "Silent Boot"
     consoleLogLevel = 0;
     initrd.verbose = false;
     kernelParams = [
@@ -39,9 +38,6 @@
       "rd.udev.log_level=3"
       "udev.log_priority=3"
     ];
-    # Hide the OS choice for bootloaders.
-    # It's still possible to open the bootloader list by pressing any key
-    # It will just not appear on screen unless a key is pressed
     loader.timeout = 0;
   };
 
@@ -57,9 +53,10 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
-    font = "Lat2-Terminus16";
+    font = "Lat2-Terminus28";
     # keyMap = "us";
     useXkbConfig = true;
+    earlySetup = true;
   };
 
   services = {
@@ -74,7 +71,11 @@
     printing.enable = true;
   };
 
-  hardware.pulseaudio.enable = false;
+  hardware = {
+    pulseaudio.enable = false;
+    bluetooth.enable = true;
+
+  };
 
   security = {
     rtkit.enable = true;
