@@ -15,6 +15,7 @@
       enable = true;
       interactiveShellInit = ''
         set fish_greeting ""
+        set -U fish_cursor_default block
       '';
       shellAliases = {
         ec = "emacsclient -c";

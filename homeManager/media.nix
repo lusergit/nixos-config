@@ -1,7 +1,11 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  programs.mpv = {
-    enable = true;
-  };
+  programs.mpv.enable = true;
+  services.mpris-proxy.enable = true;
 }

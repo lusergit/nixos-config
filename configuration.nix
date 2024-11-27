@@ -5,6 +5,12 @@
   ...
 }:
 
+let
+  nixpkgsPr = builtins.fetchTarball {
+    url = "https://github.com/Sicheng-Pan/nixpkgs/archive/master.tar.gz";
+    sha256 = "0xiighffwyhis6ni815s6bqcrvhsr3s7c208sq3c4y5p2f1g397w";
+  };
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -53,14 +59,18 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
-    font = "Lat2-Terminus28";
-    # keyMap = "us";
+    font = "Lat2-Terminus16";
     useXkbConfig = true;
     earlySetup = true;
   };
 
   services = {
-    xserver.enable = true;
+    xserver ={
+      enable = true;
+      xkb.layout = "us";
+      xkbVariant = "alt-intl,";
+      xkbOptions = "ctrl:nocaps";
+    };
     displayManager.sddm = {
       enable = true;
       wayland.enable = true;
@@ -72,9 +82,6 @@
   };
 
   hardware = {
-    pulseaudio.enable = false;
-    bluetooth.enable = true;
-
   };
 
   security = {
@@ -151,14 +158,24 @@
   };
 
   environment = {
-    systemPackages = with pkgs; [
+    systemPackages = with pkgs; with kdePackages; [
       vim
       wget
       docker-compose
       guix
-      kdePackages.sddm-kcm
-      kdePackages.plymouth-kcm
       wl-clipboard
+      sddm-kcm
+      plymouth-kcm
+      discover
+      kgpg
+      ### wallpaper-engine-plugin
+      (callPackage "${nixpkgsPr}/pkgs/kde/third-party/wallpaper-engine-plugin/default.nix" {})
+      qtmultimedia
+      qtwebchannel
+      qtwebengine
+      qtwebsockets
+      (python3.withPackages (python-pkgs: [ python-pkgs.websockets ]))
+      ###
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
@@ -180,6 +197,7 @@
       };
     };
     virt-manager.enable = true;
+    steam.enable = true;
   };
 
   # List services that you want to enable:
@@ -198,6 +216,8 @@
         userServices = true;
       };
     };
+
+    fwupd.enable = true;
   };
 
   system.copySystemConfiguration = false;
@@ -207,18 +227,26 @@
     allowUnfree = true;
   };
 
-  hardware.enableAllFirmware = true;
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-    extraPackages = with pkgs; [
-      vaapiVdpau
-      vulkan-validation-layers
-      vulkan-extension-layer
-      vaapiIntel
-      intel-media-driver
-      intel-compute-runtime
-    ];
+  hardware = {
+      enableAllFirmware = true;
+      graphics = {
+        enable = true;
+        enable32Bit = true;
+        extraPackages = with pkgs; [
+          vaapiVdpau
+          vulkan-validation-layers
+          vulkan-extension-layer
+          vaapiIntel
+          intel-media-driver
+          intel-compute-runtime
+        ];
+      };
+
+    pulseaudio.enable = false;
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
   };
 
   nix.settings.experimental-features = [

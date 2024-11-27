@@ -63,5 +63,27 @@
         tag.gpgSign = true;
       };
     };
+
+    kitty = {
+      enable = true;
+      font = {
+        name = "Cascadia Code NF";
+        size = 16;
+      };
+      settings = {
+        cursor_shape      = "block";
+        bold_font         = "auto";
+        italic_font       = "auto";
+        bold_italic_font  = "auto";
+      };
+      shellIntegration = {
+        mode = "no-cursor";
+      };
+      themeFile = "Modus_Vivendi";
+    };
+
+    atuin = {
+      enable = true;
+    };
   };
 }
