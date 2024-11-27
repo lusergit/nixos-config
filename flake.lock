@@ -57,21 +57,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-wallpaper-engine": {
-      "locked": {
-        "lastModified": 1723919542,
-        "narHash": "sha256-/KTxghO3eMIG1ggIdvTIGu7M8DK6BBSt0RF67hx8MXY=",
-        "owner": "Sicheng-Pan",
-        "repo": "nixpkgs",
-        "rev": "5ba93319d81da028339755243fa405556a2b18d7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Sicheng-Pan",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "plasma-manager": {
       "inputs": {
         "home-manager": [
@@ -100,7 +85,6 @@
         "homeManager": "homeManager",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-wallpaper-engine": "nixpkgs-wallpaper-engine",
         "plasma-manager": "plasma-manager"
       }
     }
