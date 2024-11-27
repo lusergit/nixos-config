@@ -11,6 +11,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "homeManager";
     };
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-index-database = {
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,12 +22,11 @@
   };
   outputs =
     {
-      self,
       nixpkgs,
       homeManager,
       nix-index-database,
-      plasma-manager,
-    }:
+      ...
+    }@inputs:
     {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
       nixosConfigurations.lHost = nixpkgs.lib.nixosSystem {
@@ -31,6 +34,7 @@
         modules = [
           homeManager.nixosModules.home-manager
           nix-index-database.nixosModules.nix-index
+          { config._module.args = {inherit inputs; }; }
           ./configuration.nix
           ./home.nix
         ];

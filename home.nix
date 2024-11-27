@@ -1,4 +1,4 @@
-{ ... }:
+{ inputs, ... }:
 {
   config = {
     home-manager = {
@@ -13,16 +13,17 @@
             ./homeManager/fish.nix
             ./homeManager/mail.nix
             ./homeManager/media.nix
+            inputs.niri.homeModules.niri
           ];
 
           home = {
-            packages = [
-              pkgs.discord
-              pkgs.spotify
-              pkgs.telegram-desktop
-              pkgs.mattermost-desktop
-              pkgs.ispell
-              pkgs.aspell
+            packages = with pkgs; [
+              discord
+              spotify
+              telegram-desktop
+              mattermost-desktop
+              ispell
+              aspell
             ];
             stateVersion = "24.11";
           };
