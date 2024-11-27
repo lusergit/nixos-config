@@ -29,10 +29,10 @@
       nixosConfigurations.lHost = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./configuration.nix
           homeManager.nixosModules.home-manager
-          ./home.nix
           nix-index-database.nixosModules.nix-index
+          ./configuration.nix
+          ./home.nix
         ];
       };
     };

@@ -71,10 +71,10 @@
         size = 16;
       };
       settings = {
-        cursor_shape      = "block";
-        bold_font         = "auto";
-        italic_font       = "auto";
-        bold_italic_font  = "auto";
+        cursor_shape = "block";
+        bold_font = "auto";
+        italic_font = "auto";
+        bold_italic_font = "auto";
       };
       shellIntegration = {
         mode = "no-cursor";
