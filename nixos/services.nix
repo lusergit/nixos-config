@@ -10,8 +10,8 @@
     xserver = {
       enable = true;
       xkb.layout = "us";
-      xkbVariant = "alt-intl,";
-      xkbOptions = "ctrl:nocaps";
+      xkb.variant = "alt-intl,";
+      xkb.options = "ctrl:nocaps";
     };
 
     displayManager.sddm = {
