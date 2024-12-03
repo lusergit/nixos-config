@@ -13,7 +13,7 @@
             ./homeManager/fish.nix
             ./homeManager/mail.nix
             ./homeManager/media.nix
-            inputs.niri.homeModules.niri
+            ./homeManager/window-manager.nix
           ];
 
           home = {

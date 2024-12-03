@@ -45,9 +45,5 @@
     };
 
     fwupd.enable = true;
-
-    displayManager = {
-      sessionPackages = [ config.home-manager.users.luser.programs.niri.package ];
-    };
   };
 }

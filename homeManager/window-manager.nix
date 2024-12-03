@@ -1,15 +1,7 @@
-{ config, lib, pkgs, ... }:
+{ ... }:
 
 {
-  programs = {
-    niri.enable = true;
-  };
-
-  xdg.portal = {
+  services.darkman = {
     enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-gnome
-    ];
   };
 }
