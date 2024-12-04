@@ -19,6 +19,7 @@
         mpvpaper
         linux-wallpaperengine
         gimp-with-plugins
+        geoclue2
       ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
