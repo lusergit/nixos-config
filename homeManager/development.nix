@@ -23,6 +23,7 @@
         ".nix-hex/"
         ".envrc"
         ".env"
+        ".projectile"
         ".venv/"
         "pyenv/"
         ".vscode/"
