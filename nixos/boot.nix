@@ -13,7 +13,10 @@
     };
 
     initrd = {
-      systemd.enable = true;
+      systemd = {
+        enable = true;
+        tpm2.enable = true;
+      };
       services.lvm.enable = true;
     };
 
