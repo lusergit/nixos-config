@@ -1,7 +1,4 @@
 {
-  config,
-  lib,
-  pkgs,
   ...
 }:
 
@@ -16,7 +13,10 @@
 
     displayManager.sddm = {
       enable = true;
-      wayland.enable = true;
+      wayland = {
+        enable = true;
+        compositor = "kwin";
+      };
     };
 
     desktopManager.plasma6.enable = true;
