@@ -8,7 +8,7 @@ let
     src = ../wallpapers;
     dontUnpack = true;
     installPhase = ''
-      cp $src/ $out
+      cp -r $src $out
     '';
   };
 in

@@ -76,6 +76,9 @@
         bold_font = "auto";
         italic_font = "auto";
         bold_italic_font = "auto";
+        remember_window_size = "no";
+        initial_window_width = "100c";
+        initial_window_height = "30c";
       };
       shellIntegration = {
         mode = "no-cursor";
