@@ -13,7 +13,8 @@
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   boot.loader.efi.efiSysMountPoint = "/efi";
-  boot.initrd.luks.devices.cryptroot.device = "/dev/disk/by-uuid/9861a123-4502-4c63-9b21-507d36fe542c";
+  boot.initrd.luks.devices.cryptroot.device =
+    "/dev/disk/by-uuid/9861a123-4502-4c63-9b21-507d36fe542c";
   boot.initrd.availableKernelModules = [
     "vmd"
     "xhci_pci"

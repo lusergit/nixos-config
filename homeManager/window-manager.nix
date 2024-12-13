@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   services.darkman = {
@@ -11,13 +11,15 @@
 
     lightModeScripts = {
       breeze_light = ''
-      lookandfeeltool -a org.kde.breeze.desktop
+        lookandfeeltool -a org.kde.breeze.desktop
+        plasma-apply-wallpaperimage ${pkgs.background-package}/Green_icons.png
       '';
     };
 
     darkModeScripts = {
       breeze_light = ''
-      lookandfeeltool -a org.kde.breezedark.desktop
+        lookandfeeltool -a org.kde.breezedark.desktop
+        plasma-apply-wallpaperimage ${pkgs.background-package}/purple_icons.png
       '';
     };
   };

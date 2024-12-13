@@ -6,9 +6,8 @@
 }:
 
 {
-  programs =
-    {
-    };
+  programs = {
+  };
 
   nix = {
     gc = {

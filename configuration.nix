@@ -20,5 +20,7 @@
     ./nixos/time.nix
     ./nixos/users.nix
     ./nixos/virtualisation.nix
+
+    ./overlays/background.nix
   ];
 }
