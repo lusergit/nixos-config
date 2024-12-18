@@ -12,14 +12,14 @@
     lightModeScripts = {
       breeze_light = ''
         lookandfeeltool -a org.kde.breeze.desktop
-        plasma-apply-wallpaperimage ${pkgs.background-package}/Green_icons.png
+        plasma-apply-wallpaperimage ${pkgs.background-package}/light.png
       '';
     };
 
     darkModeScripts = {
-      breeze_light = ''
+      breeze_dark = ''
         lookandfeeltool -a org.kde.breezedark.desktop
-        plasma-apply-wallpaperimage ${pkgs.background-package}/purple_icons.png
+        plasma-apply-wallpaperimage ${pkgs.background-package}/dark.png
       '';
     };
   };
