@@ -3,7 +3,7 @@
   nixpkgs.overlays = [
     (self: super: {
       background-package = super.stdenvNoCC.mkDerivation {
-        name = "background-image";
+        name = "background-package";
         src = ../wallpapers;
         dontUnpack = true;
         installPhase = ''
