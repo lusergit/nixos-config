@@ -15,25 +15,26 @@
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
   outputs =
     {
       nixpkgs,
-      home-manager,
-      nix-index-database,
       ...
-    }:
+    }@inputs:
+    let
+      makeSystem = import ./lib/mkSystem.nix inputs;
+    in
     {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
-      nixosConfigurations.lHost = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          home-manager.nixosModules.home-manager
-          nix-index-database.nixosModules.nix-index
-          ./configuration.nix
-          ./home.nix
-        ];
+
+      nixosConfigurations = {
+        lHostWork = makeSystem "lHostWork" {
+          localModules = [
+            "desktop-kde"
+            "virtualization"
+            "work"
+          ];
+        };
       };
 
       devShells.x86_64-linux.default =
