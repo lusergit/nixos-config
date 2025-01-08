@@ -8,12 +8,12 @@
         { pkgs, ... }:
         {
           imports = [
-            ./homeManager/development.nix
-            ./homeManager/emacs.nix
-            ./homeManager/fish.nix
-            ./homeManager/mail.nix
-            ./homeManager/media.nix
-            ./homeManager/window-manager.nix
+            ./home-manager/development.nix
+            ./home-manager/emacs.nix
+            ./home-manager/fish.nix
+            ./home-manager/mail.nix
+            ./home-manager/media.nix
+            ./home-manager/window-manager.nix
           ];
 
           home = {
