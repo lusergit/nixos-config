@@ -1,4 +1,9 @@
-{ config, pkgs, user, ... }:
+{
+  config,
+  pkgs,
+  user,
+  ...
+}:
 
 {
   system = {
@@ -68,19 +73,17 @@
   };
 
   environment = {
-    systemPackages =
-      with pkgs;
-      [
-        wget
-        xq
-        fd
-        ripgrep
-        eza
-        bat
-        docker-compose
-        wl-clipboard
-        geoclue2
-      ];
+    systemPackages = with pkgs; [
+      wget
+      xq
+      fd
+      ripgrep
+      eza
+      bat
+      docker-compose
+      wl-clipboard
+      geoclue2
+    ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
     };

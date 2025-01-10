@@ -36,6 +36,7 @@
       gimp-with-plugins
       ispell
       aspell
+      reuse
     ];
     stateVersion = "24.11";
   };

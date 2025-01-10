@@ -21,8 +21,8 @@
         erestart = "systemctl --user restart emacs";
         estatus = "systemctl --user status emacs";
 
-        ls = "ls --color=auto -gh";
-        la = "ls --color=auto -gah";
+        ls = "exa -1lxXh --smart-group --git";
+        la = "exa -1lxXha --smart-group --git";
       };
     };
   };

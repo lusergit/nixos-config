@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.luserModules.desktop-kde;
 in
@@ -13,9 +18,9 @@ in
       plymouth-kcm
       kgpg
       (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
-          [General]
-          background = ${pkgs.background-package}/light.png
-        '')
+        [General]
+        background = ${pkgs.background-package}/light.png
+      '')
     ];
     services = {
       displayManager.sddm = {
