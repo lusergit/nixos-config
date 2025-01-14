@@ -23,6 +23,8 @@
 
         ls = "exa -1lxXh --smart-group --git";
         la = "exa -1lxXha --smart-group --git";
+
+        tpmrefresh = "sudo systemd-cryptenroll --tpm2-device=auto --tpm2-pcrs=0+2+7 --wipe-slot=tpm2 /dev/nvme0n1p3";
       };
     };
   };
