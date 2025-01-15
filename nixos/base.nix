@@ -37,10 +37,13 @@
       dates = [ "Thu *-*-* 12:45" ];
     };
 
-    settings.experimental-features = [
+    settings = {
+      experimental-features = [
       "nix-command"
       "flakes"
     ];
+      trusted-users = [ user "root" "@wheel" ];
+    };
   };
 
   nixpkgs.config = {
