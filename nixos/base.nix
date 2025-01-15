@@ -39,10 +39,14 @@
 
     settings = {
       experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
-      trusted-users = [ user "root" "@wheel" ];
+        "nix-command"
+        "flakes"
+      ];
+      trusted-users = [
+        user
+        "root"
+        "@wheel"
+      ];
     };
   };
 
