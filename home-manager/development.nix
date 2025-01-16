@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   programs = {
     bash.enable = true;
@@ -87,7 +87,9 @@
     };
 
     ghostty = {
+      package = inputs.ghostty.packages.${pkgs.system}.default;
       enable = true;
+
       themes = {
         modus-vivendi = {
           palette = [
@@ -145,6 +147,7 @@
         shell-integration-features = "no-cursor";
         cursor-style = "block";
         window-theme = "ghostty";
+        window-decoration = "server";
       };
     };
 
