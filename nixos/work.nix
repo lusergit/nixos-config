@@ -36,7 +36,6 @@ in
         ];
       };
 
-      pulseaudio.enable = false;
       bluetooth = {
         enable = true;
         powerOnBoot = true;

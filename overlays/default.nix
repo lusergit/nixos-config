@@ -1,4 +1,4 @@
-{ ... }:
+{ inputs, ... }:
 {
   nixpkgs.overlays = [
     (self: super: {
