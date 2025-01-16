@@ -16,6 +16,7 @@ in
     environment.systemPackages = with pkgs.kdePackages; [
       sddm-kcm
       plymouth-kcm
+      xdg-desktop-portal-kde
       kgpg
       (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
         [General]
