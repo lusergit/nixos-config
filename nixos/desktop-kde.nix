@@ -20,7 +20,7 @@ in
       kgpg
       (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
         [General]
-        background = ${pkgs.background-package}/light.png
+        background = ${pkgs.background-package}/purple-icons.png
       '')
     ];
     services = {
