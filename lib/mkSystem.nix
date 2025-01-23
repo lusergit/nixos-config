@@ -49,6 +49,7 @@ nixosSystem rec {
     {
       imports = [
         ../nixos/desktop-kde.nix
+        ../nixos/desktop-gnome.nix
         ../nixos/virtualisation.nix
         ../nixos/work.nix
 

@@ -9,7 +9,7 @@
     ./emacs.nix
     ./fish.nix
     ./mail.nix
-    ./media.nix
+    ./gnome.nix
     # ./window-manager.nix
   ];
 
