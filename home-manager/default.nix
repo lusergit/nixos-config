@@ -10,7 +10,7 @@
     ./fish.nix
     ./mail.nix
     ./gnome.nix
-    # ./window-manager.nix
+    ./firefox.nix
   ];
 
   nix.settings = {

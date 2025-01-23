@@ -149,6 +149,7 @@
         window-theme = "ghostty";
         window-height = 60;
         window-width = 200;
+        font-size = 18;
       };
     };
 

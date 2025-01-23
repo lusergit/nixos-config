@@ -2,6 +2,8 @@
 
 {
   config = {
+    xdg.configFile."fish/themes/modus-vivendi.theme".source = ./fish_themes/modus-vivendi.fish;
+    xdg.configFile."fish/themes/modus-operandi.theme".source = ./fish_themes/modus-operandi.fish;
     programs.starship = {
       enable = true;
       enableFishIntegration = true;
