@@ -87,7 +87,7 @@
     };
 
     ghostty = {
-      package = inputs.ghostty.packages.${pkgs.system}.default;
+      # package = inputs.ghostty.packages.${pkgs.system}.default;
       enable = true;
 
       themes = {
@@ -147,7 +147,7 @@
         shell-integration-features = "no-cursor";
         cursor-style = "block";
         window-theme = "ghostty";
-        window-decoration = "server";
+        # window-decoration = "server";
       };
     };
 

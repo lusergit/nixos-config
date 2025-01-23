@@ -33,7 +33,7 @@
       nixosConfigurations = {
         lHostWork = makeSystem "lHostWork" {
           localModules = [
-            "desktop-kde"
+            "desktop-gnome"
             "virtualization"
             "work"
           ];
