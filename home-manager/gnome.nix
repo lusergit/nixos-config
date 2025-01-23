@@ -6,5 +6,8 @@ let
   ];
 in
 {
-  programs.gnome-shell.extensions = map (package: {inherit package;}) extensions;
+  programs.gnome-shell = {
+    enable = true;
+    extensions = map (package: {inherit package;}) extensions;
+  };
 }

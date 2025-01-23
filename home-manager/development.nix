@@ -147,7 +147,8 @@
         shell-integration-features = "no-cursor";
         cursor-style = "block";
         window-theme = "ghostty";
-        # window-decoration = "server";
+        window-height = 60;
+        window-width = 200;
       };
     };
 
