@@ -5,6 +5,7 @@ let
     next-ls
     elixir-ls
   ];
+  emacsBasePackage = pkgs.emacs29-pgtk;
 in
 {
 
@@ -12,8 +13,8 @@ in
     enable = true;
     package = (
       pkgs.symlinkJoin {
-        name = "${lib.getName pkgs.emacs}-wrapped-${lib.getVersion pkgs.emacs}";
-        paths = [ pkgs.emacs ];
+        name = "${lib.getName emacsBasePackage}-wrapped-${lib.getVersion emacsBasePackage}";
+        paths = [ emacsBasePackage ];
         preferLocalBuild = true;
         nativeBuildInputs = [ pkgs.makeWrapper ];
         postBuild = ''
