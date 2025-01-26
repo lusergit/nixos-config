@@ -43,7 +43,6 @@ nixosSystem rec {
 
     nix-index-database.nixosModules.nix-index
 
-
     ../nixos/base.nix
     ../hosts/${system-name}.nix
 

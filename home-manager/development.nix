@@ -1,4 +1,9 @@
-{ pkgs, inputs, gpgKey, ... }:
+{
+  pkgs,
+  inputs,
+  gpgKey,
+  ...
+}:
 {
   programs = {
     bash.enable = true;
@@ -66,18 +71,16 @@
       };
 
       includes = [
-          {
-            condition = "gitdir:~/src/seco/";
-            contents = {
-              user = {
-                email = "luca.zaninotto@secomind.com";
-                signingKey = "F3F89DB4BABF8C77";
-              };
-              commit.gpgSign = true;
-              tag.gpgSign = true;
+        {
+          condition = "gitdir:~/seco/";
+          contents = {
+            user = {
+              email = "luca.zaninotto@secomind.com";
+              signingKey = "F3F89DB4BABF8C77";
             };
-          }
-        ];
+          };
+        }
+      ];
     };
 
     kitty = {
