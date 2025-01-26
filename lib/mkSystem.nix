@@ -8,6 +8,7 @@ system-name:
 {
   system ? "x86_64-linux",
   user ? "luser",
+  gpgKey ? "59AD88AE64BD1061",
   hostname ? "lHost",
   wan ? "${hostname}.local",
   overlays ? [ ],
@@ -77,7 +78,7 @@ nixosSystem rec {
           }
         );
         extraSpecialArgs = {
-          inherit user system;
+          inherit user system gpgKey;
           inputs = flake-inputs;
         };
       };

@@ -26,10 +26,7 @@
   outputs =
     {
       nixpkgs,
-      ...
-    }@inputs:
-    let
-      makeSystem = import ./lib/mkSystem.nix inputs;
+      ...  }@inputs: let makeSystem = import ./lib/mkSystem.nix inputs;
     in
     {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
@@ -42,10 +39,15 @@
             "work"
           ];
         };
-      };
 
-      devShells.x86_64-linux.default =
-        let
+        lHost = makeSystem "lHost" {
+          localModules = [
+            "desktop-gnome"
+            "virtualization"
+            "work"
+          ];
+        };
+      }; devShells.x86_64-linux.default = let
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
         in
         pkgs.mkShell {
