@@ -41,6 +41,7 @@
             "virtualization"
             "work"
           ];
+          gpgKey = "BEC8CD24B1D83386";
         };
 
         lHost = makeSystem "lHost" {
