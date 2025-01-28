@@ -8,6 +8,8 @@ let
   extensions = with pkgs.gnomeExtensions; [
     search-light
     night-theme-switcher
+    user-themes-x
+    unblank
   ];
 in
 {

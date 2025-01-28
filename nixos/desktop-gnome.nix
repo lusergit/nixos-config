@@ -24,6 +24,7 @@ in
     environment.systemPackages = with pkgs; [
       dconf-editor
       gnome-tweaks
+      gnome-themes-extra
     ];
   };
 }
