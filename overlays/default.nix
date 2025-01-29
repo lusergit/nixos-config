@@ -20,11 +20,14 @@
             cp -r $src $out
           '';
         };
+
       in
       {
         inherit background-package mattermost-desktop;
       }
     )
+
+    inputs.emacs-overlay.overlays.default
   ];
 
   config = {

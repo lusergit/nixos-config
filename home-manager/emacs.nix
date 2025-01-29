@@ -4,8 +4,12 @@ let
     lexical
     next-ls
     elixir-ls
+    gcc
   ];
-  emacsBasePackage = pkgs.emacs29-pgtk;
+  emacsBasePackage = (pkgs.emacsPackagesFor pkgs.emacs-pgtk).emacsWithPackages (epkgs: with epkgs; [
+        vterm
+        treesit-grammars.with-all-grammars
+  ]);
 in
 {
 
