@@ -21,8 +21,14 @@
     ];
   };
   nixpkgs.config.allowUnfree = true;
-  xdg.configHome = "/home/${user}/.config/";
-  xdg.enable = true;
+  xdg = {
+    configHome = "/home/${user}/.config/";
+    enable = true;
+    configFile = {
+      "autostart/mattermost.desktop".source = "${pkgs.mattermost-desktop}/share/applications/Mattermost.desktop";
+      "autostart/thunderbird.desktop".source = "${pkgs.thunderbird}/share/applications/thunderbird.desktop";
+    };
+  };
 
   home = {
     username = user;
