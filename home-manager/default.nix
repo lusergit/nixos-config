@@ -36,7 +36,6 @@
 
     packages = with pkgs; [
       discord
-      spotify
       telegram-desktop
       mattermost-desktop
       gimp-with-plugins
