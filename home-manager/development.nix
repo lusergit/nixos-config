@@ -2,6 +2,8 @@
   pkgs,
   inputs,
   gpgKey,
+  config,
+  lib,
   ...
 }:
 {
@@ -81,6 +83,29 @@
           };
         }
       ];
+    };
+
+    jujutsu = {
+      enable = true;
+      ediff = true;
+      settings.user = {
+        name = config.programs.git.extraConfig.user.name;
+        email = lib.mkDefault config.programs.git.extraConfig.user.email;
+      };
+      settings."--scope" = [
+          {
+            "--when".repositories = [ "~/seco" ];
+            user.email = "lusa.zaninotto@secomind.com";
+            signing = {
+              sign-all = true;
+              backend = "gpg";
+              key = "F3F89DB4BABF8C77";
+            };
+          }
+      ];
+      settings.ui = {
+        deafult-command = "status";
+      };
     };
 
     kitty = {
