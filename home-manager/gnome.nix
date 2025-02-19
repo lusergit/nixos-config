@@ -12,6 +12,7 @@ let
     unblank
     kimpanel
     wiggle
+    paperwm
   ];
 in
 {
