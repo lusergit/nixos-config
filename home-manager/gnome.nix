@@ -10,6 +10,8 @@ let
     night-theme-switcher
     user-themes-x
     unblank
+    kimpanel
+    wiggle
   ];
 in
 {

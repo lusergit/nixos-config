@@ -67,6 +67,15 @@
       LC_TELEPHONE = "it_IT.UTF-8";
       LC_MEASUREMENT = "it_IT.UTF-8";
     };
+    inputMethod = {
+      enabled = "fcitx5";
+      fcitx5 = {
+        addons = with pkgs; [
+          fcitx5-gtk
+        ];
+        waylandFrontend = true;
+      };
+    };
   };
 
   time.timeZone = "Europe/Rome";
